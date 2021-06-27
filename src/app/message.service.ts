@@ -17,4 +17,8 @@ export class MessageService {
   createMessage(message: Message): Observable<any> {
     return this.http.post(`${this.url}/addMessage`, message);
   }
+
+  deleteMessage(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/delete/${id}`);
+  }
 }
