@@ -10,6 +10,7 @@ import { DialogModule } from 'primeng/dialog';
 import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import { DetailDialogComponent } from './detail-dialog/detail-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, CreateComponent, DetailDialogComponent],
@@ -22,6 +23,7 @@ import { DetailDialogComponent } from './detail-dialog/detail-dialog.component';
     InputTextModule,
     ConfirmDialogModule,
     DialogModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
