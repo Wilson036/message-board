@@ -31,4 +31,9 @@ export class CreateComponent implements OnInit {
     };
     this.insertEvent.emit(message);
   }
+
+  clear() {
+    this.messageForm.reset();
+    this.messageForm.controls['name'].setValue('Wilson');
+  }
 }
