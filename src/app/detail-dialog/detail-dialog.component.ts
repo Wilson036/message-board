@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Message } from '../model/message';
 
 @Component({
   selector: 'detail-dialog',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-dialog.component.scss'],
 })
 export class DetailDialogComponent implements OnInit {
+  @Input()
+  message: Message = { name: 'wilson', title: '', content: '' };
   constructor() {}
 
   ngOnInit(): void {}

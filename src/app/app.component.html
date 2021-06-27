@@ -1,7 +1,6 @@
 <div class="cotainer">
   <h1>留言板</h1>
   <div class="card">
-    <ng-container *ngIf="messages$|async as messages">
       <p-table [value]="messages" dataKey="id">
         <ng-template pTemplate="header">
           <tr>
@@ -17,15 +16,16 @@
             <td>{{message.title}}</td>
             <td>{{message.createdAt | date:'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
-              <button pButton pRipple type="button" label="詳細留言" class="p-button-info mr8"
-              (click)="delete(message.id)"></button>
+              <button pButton pRipple type="button" label="刪除留言" class="p-button-info mr8" (click)="showBasicDialog()"  label="詳細內容"></button>
+              <p-dialog header="詳細內容" [(visible)]="displayBasic" [style]="{width: '50vw',height:'50vh'}" [baseZIndex]="10000">
+                <detail-dialog [message]="message" style="height: 100%;"></detail-dialog>              
+              </p-dialog>
               <button pButton pRipple type="button" label="刪除留言" class="p-button-danger"
                 (click)="delete(message.id)"></button>
             </td>
           </tr>
         </ng-template>
       </p-table>
-  </ng-container>
   </div>
-  <create></create>
+  <create (insertEvent)="insert($event)"></create>
 </div>

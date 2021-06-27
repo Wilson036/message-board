@@ -3,5 +3,5 @@ export interface Message {
   name: string;
   title: string;
   content: string;
-  createdAt: Date;
+  createdAt?: Date;
 }

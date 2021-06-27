@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Message } from '../model/message';
 
 @Component({
   selector: 'create',
@@ -7,13 +8,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
+  @Output()
+  insertEvent = new EventEmitter<Message>();
+
   messageForm = new FormGroup({
     name: new FormControl({ value: 'Wilson', disabled: true }),
     title: new FormControl('', Validators.required),
     content: new FormControl('', Validators.required),
-    createdAt: new FormControl(new Date()),
   });
   constructor() {}
 
   ngOnInit(): void {}
+
+  insert() {
+    if (this.messageForm.invalid) {
+      return;
+    }
+    const message = {
+      name: 'Wilson',
+      createdAt: new Date(),
+      ...this.messageForm.value,
+    };
+    this.insertEvent.emit(message);
+  }
 }

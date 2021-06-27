@@ -1,0 +1,29 @@
+.board {
+  display: flex;
+  height: 25vh;
+  font-weight: 600;
+}
+.name {
+  display: flex;
+  padding: 8px;
+  border-right: 1px solid;
+}
+.detail {
+  display: flex;
+  border-bottom: 1px solid;
+
+  div {
+    padding: 4px;
+    width: 50%;
+  }
+}
+.content {
+  padding: 4px;
+  height: 80%;
+  background-color: rgb(153, 233, 153);
+  border-bottom: 1px solid #000;
+}
+
+.board-line {
+  border: 1px solid;
+}

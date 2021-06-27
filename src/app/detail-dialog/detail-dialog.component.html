@@ -1,1 +1,12 @@
-<p>detail-dialog works!</p>
+<div class="board board-line">
+    <div class="name">{{message.name}}</div>
+    <div style="width:100%">
+        <div class="detail ">
+            <div  style="border-right: 1px solid">{{message.title}}</div>
+            <div >{{message.createdAt | date:'yyyy-MM-dd hh:mm:ss'}}</div>
+        </div>
+        <div class="content">
+            {{message.content}}
+        </div>
+    </div>
+</div>
