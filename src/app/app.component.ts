@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MessageService } from './message.service';
 import { Message } from './model/message';
 
@@ -8,19 +9,11 @@ import { Message } from './model/message';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'message-board';
-
+  messages$: Observable<Message[]> = this.messageService.getAllMessages();
   constructor(private messageService: MessageService) {}
-  ngOnInit() {
-    const message: Message = {
-      name: 'wilson',
-      title: 'hello',
-      content: 'hello',
-      createdAt: new Date(),
-    };
+  ngOnInit() {}
 
-    this.messageService.createMessage(message).subscribe((obj) => {
-      console.log({ obj });
-    });
+  delete(id: number) {
+    console.log({ id });
   }
 }

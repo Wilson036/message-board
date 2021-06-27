@@ -1,1 +1,18 @@
-<p>create works!</p>
+<div class="create">
+    <h3>建立留言</h3>
+    <form [formGroup]="messageForm">
+        <div>
+            <p>暱稱</p><input type="text" pInputText formControlName="name"> 
+        </div>
+        <div>
+            <p>留言主旨</p><input type="text" pInputText formControlName="title"> 
+        </div>
+        <div>
+            <p>留言內容</p><textarea rows="5" cols="30" pInputTextarea formControlName="content"></textarea>
+        </div>
+    </form>
+    <div class="btnDiv">
+        <button pButton pRipple type="button" label="送 出" class="p-button-success"></button>
+        <button pButton pRipple type="button" label="清 空" class="p-button-warning" ></button>
+    </div>
+</div>

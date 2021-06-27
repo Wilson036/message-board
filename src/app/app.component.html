@@ -1,3 +1,31 @@
-<p>hello world</p>
-<create></create>
-<detail-dialog></detail-dialog>
+<div class="cotainer">
+  <h1>留言板</h1>
+  <div class="card">
+    <ng-container *ngIf="messages$|async as messages">
+      <p-table [value]="messages" dataKey="id">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>暱稱</th>
+            <th>主旨</th>
+            <th>新增時間</th>
+            <th style="width:16rem"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-message>
+          <tr>
+            <td>{{message.name}}</td>
+            <td>{{message.title}}</td>
+            <td>{{message.createdAt | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>
+              <button pButton pRipple type="button" label="詳細留言" class="p-button-info mr8"
+              (click)="delete(message.id)"></button>
+              <button pButton pRipple type="button" label="刪除留言" class="p-button-danger"
+                (click)="delete(message.id)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+  </ng-container>
+  </div>
+  <create></create>
+</div>

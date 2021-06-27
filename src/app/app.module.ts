@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { AppComponent } from './app.component';
@@ -22,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     TableModule,
     InputTextModule,
     ConfirmDialogModule,
+    ReactiveFormsModule,
     DialogModule,
+    InputTextareaModule,
     HttpClientModule,
   ],
   providers: [],

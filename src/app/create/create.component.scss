@@ -1,0 +1,26 @@
+.create {
+  display: flex;
+}
+
+form {
+  width: 500px;
+  padding-left: 50px;
+  padding-right: 50px;
+  div {
+    display: flex;
+    margin-bottom: 12px;
+    p {
+      width: 100px;
+    }
+  }
+}
+
+.btnDiv {
+  display: flex;
+  align-items: flex-end;
+  button {
+    color: white !important;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}
