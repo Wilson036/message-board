@@ -11,7 +11,7 @@ import { Message } from './model/message';
 })
 export class AppComponent {
   messages: Message[] = [];
-  displayBasic: boolean = false;
+  displayBasicArray: boolean[] = [false, false, false];
   constructor(
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
@@ -23,8 +23,9 @@ export class AppComponent {
     });
   }
 
-  showBasicDialog() {
-    this.displayBasic = true;
+  showBasicDialog(index: number) {
+    console.log({ index });
+    this.displayBasicArray[index] = true;
   }
 
   delete(messageId: number) {
@@ -44,8 +45,10 @@ export class AppComponent {
 
   insert(message: Message) {
     this.messageService.createMessage(message).subscribe(
-      () => {
-        this.messages.push({ id: this.messages.length + 1, ...message });
+      (data) => {
+        const array: number[] = this.messages.map(({ id }) => id) as number[];
+        const id = Math.max(...array) + 1;
+        this.messages.push({ id, ...message });
       },
       (err) => {
         console.log(err);

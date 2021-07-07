@@ -10,14 +10,14 @@
             <th style="width:16rem"></th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-message>
+        <ng-template pTemplate="body" let-message let-rowIndex="rowIndex">
           <tr>
             <td>{{message.name}}</td>
             <td>{{message.title}}</td>
             <td>{{message.createdAt | date:'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
-              <button pButton pRipple type="button" label="刪除留言" class="p-button-info mr8" (click)="showBasicDialog()"  label="詳細內容"></button>
-              <p-dialog header="詳細內容" [(visible)]="displayBasic" [style]="{width: '50vw',height:'50vh'}" [baseZIndex]="10000">
+              <button pButton pRipple type="button" label="刪除留言" class="p-button-info mr8" (click)="showBasicDialog(rowIndex)"  label="詳細內容"></button>
+              <p-dialog header="詳細內容" [(visible)]="displayBasicArray[rowIndex]" [style]="{width: '50vw',height:'50vh'}" [baseZIndex]="10000">
                 <detail-dialog [message]="message" style="height: 100%;"></detail-dialog>              
               </p-dialog>
               <p-confirmDialog #cd [style]="{width: '25vw'}">
